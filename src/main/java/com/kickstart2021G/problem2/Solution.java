@@ -1,26 +1,26 @@
 package com.kickstart2021G.problem2;
 
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Solution {
 
     public static void main(String[] args) {
 
-        // Stay Hydrated
+        // Staying Hydrated
 
         // input
         // T number of test cases
-        // N number of animals
-        // D initial number of dog food portions
-        // C initial number of cat food portions
-        // M the additional portions of cat food that we add after a dog eats a portion of dog food
-        // S of length N representing the arrangement of animals
+        // K number of objects
+        // Xi1 xi2 bottom left corner
+        // yi1 yi2 top right corner
 
         // file format
         // T
-        // N D C M
-        // S
+        // K
+        // Xi1 xi2 yi1 yi2
 
         // sample
         // 1
@@ -30,8 +30,8 @@ public class Solution {
         // 0 3 5 9
 
         // output
-        // For each test case, output one line containing Case #x: y, where x is the test case number (starting from 1)
-        // and y is YES if all the dogs will be fed and NO otherwise.
+        // Case #i: x y
+        // x and y represent the position of the water bottle
 
         //Boolean printTime = Boolean.FALSE;
         //Instant start = Instant.now();
@@ -39,27 +39,88 @@ public class Solution {
         Scanner input = new Scanner(new InputStreamReader(System.in));
         int t = input.nextInt();
         for (int i = 1; i <= t; ++i) {
-            int n = input.nextInt();
-            String s = input.next();
-            char last = 0;
-            int sum = 0;
-            StringBuilder sb = new StringBuilder();
-            for (int j = 0; j < n; j++) {
-                if (last < s.toCharArray()[j]) {
-                    sum++;
-                } else {
-                    sum = 1;
-                }
-                last = s.toCharArray()[j];
-                sb.append(sum).append(" ");
+            List<Furniture> furniture = new ArrayList<>();
+            Position min = null;
+            Position max = null;
+            int k = input.nextInt();
+
+            // read furniture information
+            for (int j = 0; j < k; j++) {
+                Furniture f = new Furniture();
+                f.x1 = input.nextInt();
+                f.y1 = input.nextInt();
+                f.x2 = input.nextInt();
+                f.y2 = input.nextInt();
+                furniture.add(f);
             }
 
-            System.out.println("Case #" + i + ": " + sb);
+            // calculate min and max positions
+            for (Furniture f : furniture) {
+                if(min == null){
+                    min = new Position();
+                    min.x = f.x1;
+                    min.y = f.y1;
+                }
+                if(max == null){
+                    max = new Position();
+                    max.x = f.x2;
+                    max.y = f.y2;
+                }
+                // bottom left corner
+                if(f.x1 < min.x){
+                    min.x = f.x1;
+                }
+                if(f.y1 < min.y){
+                    min.y = f.y1;
+                }
+                // top right corner
+                if(f.x2 > max.x){
+                    max.x = f.x2;
+                }
+                if(f.y2 > max.y){
+                    max.y = f.y2;
+                }
+            }
+
+            // Check areas
+            for (Furniture f : furniture) {
+                System.out.println(f);
+            }
+            System.out.println(min);
+            System.out.println(max);
+
+            // calculate water bottle position
         }
 
         //if(printTime) {
         //    Instant end = Instant.now();
         //    System.out.println(Duration.between(start, end));
         //}
+    }
+
+    static class Furniture {
+        Integer x1, y1, x2, y2 = null;
+
+        @Override
+        public String toString() {
+            return "Furniture{" +
+                    "x1=" + x1 +
+                    ", y1=" + y1 +
+                    ", x2=" + x2 +
+                    ", y2=" + y2 +
+                    '}';
+        }
+    }
+
+    static class Position {
+        Integer x, y = null;
+
+        @Override
+        public String toString() {
+            return "Position{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
+        }
     }
 }

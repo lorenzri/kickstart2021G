@@ -36,6 +36,20 @@ public class SolutionTests {
 		Solution.main(new String[]{});
 	}
 
+	@Test
+	public void ts2Input() throws Exception {
+		String filename = "problem1/ts2_input.txt";
+		System.setIn(new ByteArrayInputStream(readFile(filename)));
+		Solution.main(new String[]{});
+	}
+
+	@Test
+	public void ts3Input() throws Exception {
+		String filename = "problem1/ts3_input.txt";
+		System.setIn(new ByteArrayInputStream(readFile(filename)));
+		Solution.main(new String[]{});
+	}
+
 	private byte[] readFile(String inputFile) {
 		URL resource = SolutionTests.class.getClassLoader().getResource(inputFile);
 		try (InputStream inputStream = resource.openStream()) {

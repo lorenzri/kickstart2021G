@@ -1,6 +1,8 @@
 package com.kickstart2021G.problem1;
 
 import java.io.InputStreamReader;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Scanner;
 
 public class Solution {
@@ -31,17 +33,17 @@ public class Solution {
         // For each test case, output one line containing Case #x: y, where x is the test case number (starting from 1)
         // and y is YES if all the dogs will be fed and NO otherwise.
 
-        //Boolean printTime = Boolean.FALSE;
-        //Instant start = Instant.now();
+        Boolean printTime = Boolean.FALSE;
+        Instant start = Instant.now();
 
         Scanner input = new Scanner(new InputStreamReader(System.in));
         int t = input.nextInt();
         for (int i = 1; i <= t; ++i) {
             String allDogsFed = null;
             int n = input.nextInt();
-            int d = input.nextInt();
-            int c = input.nextInt();
-            int m = input.nextInt();
+            long d = input.nextLong();
+            long c = input.nextLong();
+            long m = input.nextLong();
             String s = input.next();
 
             // if no dog is in line
@@ -90,7 +92,7 @@ public class Solution {
                     break;
                 }
                 // if cat food is empty
-                if(c <= 0 && s.charAt(a+1) == 'C'){
+                if(c == 0 && s.charAt(a+1) == 'C'){
                     if(s.lastIndexOf('D') <= a){
                         allDogsFed = "YES";
                     } else {
@@ -102,9 +104,9 @@ public class Solution {
             }
         }
 
-        //if(printTime) {
-        //    Instant end = Instant.now();
-        //    System.out.println(Duration.between(start, end));
-        //}
+        if(printTime) {
+            Instant end = Instant.now();
+            System.out.println(Duration.between(start, end));
+        }
     }
 }
