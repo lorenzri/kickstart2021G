@@ -5,7 +5,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Scanner;
 
-class Solution {
+public class Solution {
 
     public static void main(String[] args) {
 

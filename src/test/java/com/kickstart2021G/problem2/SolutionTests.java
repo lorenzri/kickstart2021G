@@ -1,12 +1,12 @@
-package com.kickstart2021G.problem1;
+package com.kickstart2021G.problem2;
 
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.io.*;
 
 public class SolutionTests {
 
@@ -17,23 +17,23 @@ public class SolutionTests {
 
 	@Test
 	public void sampleTs1Input() throws Exception {
-		String filename = "problem1/sample_ts1_input.txt";
+		String filename = "problem2/sample_ts1_input.txt";
 		System.setIn(new ByteArrayInputStream(readFile(filename)));
-		Solution.main(new String[]{});
+		com.kickstart2021G.problem2.Solution.main(new String[]{});
 	}
 
 	@Test
 	public void sampleTs2Input() throws Exception {
-		String filename = "problem1/sample_ts2_input.txt";
+		String filename = "problem2/sample_ts2_input.txt";
 		System.setIn(new ByteArrayInputStream(readFile(filename)));
-		Solution.main(new String[]{});
+		com.kickstart2021G.problem2.Solution.main(new String[]{});
 	}
 
 	@Test
 	public void ts1Input() throws Exception {
-		String filename = "problem1/ts1_input.txt";
+		String filename = "problem2/ts1_input.txt";
 		System.setIn(new ByteArrayInputStream(readFile(filename)));
-		Solution.main(new String[]{});
+		com.kickstart2021G.problem2.Solution.main(new String[]{});
 	}
 
 	private byte[] readFile(String inputFile) {
