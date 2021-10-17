@@ -1,0 +1,5 @@
+/src/main/resources/problem1/*.txt
+/src/main/resources/problem2/*.txt
+/src/main/resources/problem3/*.txt
+/src/main/resources/problem4/*.txt
+target/*

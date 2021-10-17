@@ -23,15 +23,15 @@ public class SolutionTests {
 	}
 
 	@Test
-	public void sampleTs2Input() throws Exception {
-		String filename = "problem2/sample_ts2_input.txt";
+	public void ts1Input() throws Exception {
+		String filename = "problem2/ts1_input.txt";
 		System.setIn(new ByteArrayInputStream(readFile(filename)));
 		com.kickstart2021G.problem2.Solution.main(new String[]{});
 	}
 
 	@Test
-	public void ts1Input() throws Exception {
-		String filename = "problem2/ts1_input.txt";
+	public void ts2Input() throws Exception {
+		String filename = "problem2/ts2_input.txt";
 		System.setIn(new ByteArrayInputStream(readFile(filename)));
 		com.kickstart2021G.problem2.Solution.main(new String[]{});
 	}
